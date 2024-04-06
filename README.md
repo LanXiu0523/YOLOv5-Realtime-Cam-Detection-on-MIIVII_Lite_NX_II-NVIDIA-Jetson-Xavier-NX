@@ -1,11 +1,4 @@
-系统迁移
-
-```
-sudo bash /home/nvidia/Desktop/copy_rootfs.sh /dev/mmcblk1p1  
-127848677376 bytes
-```
-
-
+# YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX
 
 
 
@@ -135,31 +128,6 @@ sudo ln -s /mnt/workspace/usr/local /usr/
 
 
 
-pip ?
-
-```
-sudo apt-get install python3-pip
-
-python3 -m pip show pip
-Name: pip
-Version: 9.0.1
-Summary: The PyPA recommended tool for installing Python packages.
-Home-page: https://pip.pypa.io/
-Author: The pip developers
-Author-email: python-virtualenv@groups.google.com
-License: MIT
-Location: /usr/lib/python3/dist-packages
-Requires: 
-```
-
-```
-sudo cp -r /usr/lib/python3 /usr/lib/python3.bak
-sudo mv /usr/lib/python3 /mnt/workspace/data/
-sudo ln -s /mnt/workspace/data/python3 /usr/lib/
-```
-
-
-
 
 
 查看jetpack版本
@@ -205,47 +173,38 @@ sudo docker pull nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
 
 
 
-### 运行YOLOv5 实现相机实时目标检测
+### 
 
 
 
 ```
 sudo mkdir -p /mnt/workspace/data/docker_container/pytorch
+sudo chmod 777 -R /mnt/workspace/data/docker_container/pytorch
 cd /mnt/workspace/data/docker_container/pytorch
-git clone git@github.com:LanXiu0523/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX.git
+
+sudo git clone https://github.com/LanXiu0523/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX.git
 
 sudo docker run -it --rm --runtime nvidia --network host -v /mnt/workspace/data/docker_container/pytorch:/location/in/container nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
 
-cd /location/in/container/YOLOv3-Realtime-Cam-Detection-on-Manifold2-NVIDIA-Jetson-TX2/yolov3/
-
-python3 -m pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-python3 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple\
-python3 -m pip install -r requirements.txt
+cd /location/in/container/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX/yolov5/
 
 
+apt-get update
+apt-get dist-upgrade -y
+apt-get install build-essential cmake -y
 
+python3 -m pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple 
+python3 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install pyproject==1.3.1
+python3 -m pip install -r requirements.txt --verbose
 
-```
-
-
-
-
-
-
-
-### Bug:
-
-```
-sudo docker pull nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
-
-...
-
-failed to register layer: symlink ../aed87c2d95300f004953ecc83471ca1db6b287dcf0ade1147e43e26c90662b81/diff /mnt/workspace/data/docker/overlay2/l/BWAMOYTQTMRPD2LO62CKDCF6IB: function not implemented
-```
-
+python3 detect.py --source 0  
 
 
 ```
 
-```
+
+
+
+
 
