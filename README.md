@@ -178,8 +178,8 @@ sudo docker pull nvcr.io/nvidia/l4t-pytorch:r32.5.0-pth1.7-py3
 
 
 ```
-sudo mkdir -p /mnt/workspace/data/docker_container/pytorch
-sudo chmod 777 -R /mnt/workspace/data/docker_container/pytorch
+sudo mkdir -p /mnt/workspace/data/docker_container/
+# sudo chmod 777 -R /mnt/workspace/data/docker_container/
 cd /mnt/workspace/data/docker_container/pytorch
 
 sudo git clone https://github.com/LanXiu0523/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX.git
