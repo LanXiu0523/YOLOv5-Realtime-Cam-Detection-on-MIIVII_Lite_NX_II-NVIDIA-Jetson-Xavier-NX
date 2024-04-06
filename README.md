@@ -189,7 +189,7 @@ sudo docker run -it --rm --runtime nvidia --network host -v /mnt/workspace/data/
 cd /location/in/container/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX/yolov5/
 
 
-apt-get update
+apt-get update -y
 apt-get dist-upgrade -y
 apt-get install build-essential cmake -y
 
