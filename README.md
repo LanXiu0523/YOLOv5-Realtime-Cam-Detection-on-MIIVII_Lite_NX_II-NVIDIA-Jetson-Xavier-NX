@@ -105,10 +105,11 @@ lanxiu0523/yolov5-realtime-cam-detection-on-miivii_lite_nx2-nvidia-jetson-xavier
 
 ```bash
 # 在docker外
+cd /mnt/workspace/data/docker_container/pytorch
 sudo git clone https://github.com/LanXiu0523/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX.git
 
 # 进入docker
-sudo docker attact pytorch
+sudo docker attach pytorch
 
 cd /location/in/container/YOLOv5-Realtime-Cam-Detection-on-MIIVII_Lite_NX_II-NVIDIA-Jetson-Xavier-NX/yolov5/
 
